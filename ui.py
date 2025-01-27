@@ -19,15 +19,11 @@ class QuizInterface:
         self.question_text = self.canvas.create_text(150,125,width= 280, text= "", font= ("Arial", 20, "italic"), fill= THEME_COLOR)
         self.canvas.grid(column= 0, row= 1, columnspan= 2, pady= 50)
 
-
-        # self.question = Label(text= 'text', font= ("Arial", 20, "italic"), fg= 'black', bg= 'white')
-        # self.question.grid(column= 0, row= 1, columnspan= 2)
-
-        self.true_photo = PhotoImage(file= '/Users/davidskorepa/Desktop/coding/Main/Projects/100 days of code/Day 34./quizzler-app-start/images/true.png')
+        self.true_photo = PhotoImage(file= 'images/true.png')
         self.true = Button(image= self.true_photo, highlightthickness= 0, command= self.true_pressed)
         self.true.grid(column= 0, row= 2)
 
-        self.false_photo = PhotoImage(file= '/Users/davidskorepa/Desktop/coding/Main/Projects/100 days of code/Day 34./quizzler-app-start/images/false.png')
+        self.false_photo = PhotoImage(file= 'images/false.png')
         self.false = Button(image= self.false_photo, highlightthickness= 0, command= self.false_pressed)
         self.false.grid(column= 1, row= 2)
 
@@ -57,8 +53,7 @@ class QuizInterface:
     def give_feedback(self, is_right):
         if is_right == True:
             self.canvas.config(bg= 'green')
-            # self.window.after(1000, self.get_next_question())
-            # self.get_next_question()
+
         else:
             self.canvas.config(bg = 'red')
         self.window.after(1000, self.get_next_question)
